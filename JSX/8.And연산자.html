@@ -1,0 +1,43 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hello World</title>
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+        <!-- Don't use this in production: -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script type="text/babel">
+        function MyApp() {
+
+            const login = false;
+            return  (
+                //🍎And연산자 
+                //🌳삼항연산자에서 false의 값을 null로 하고싶을 때 사용
+                //🌳 '&&'' 를 대신 사용하면 거짓일 때 dom을 생성하지 않는다.
+                <div>
+                    
+                    {
+                        login === true && (
+                        <div>
+                            <h1>로그인에 성공하였습니다.</h1>
+                            <p>I'm Gguggu 🐶</p>
+                        </div>
+                        )
+                    }
+                </div>
+            );
+        }
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<MyApp />);
+
+        </script>
+    </body>
+    </html>
