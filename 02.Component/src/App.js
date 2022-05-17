@@ -5,6 +5,7 @@ import ArrowComponent from './components/ArrowComponent';
 import LoginComponent from './components/LoginComponent';
 import ClassLoginComponent from './components/ClassLoginComponent';
 import StateComponent from './components/StateComponent'
+import ArrowState  from './components/ArrowState';
 
 //🍎함수형 컴포넌트
 
@@ -24,6 +25,9 @@ function App() {
         </a>
         <h3>🌳State Component에서 출력되는 state</h3>
         <StateComponent></StateComponent>
+
+        <h3>🌳Arrow State에서 만들어진 버튼</h3>
+        <ArrowState></ArrowState>
       </header>
       <MyComponent></MyComponent>
       <ArrowComponent name="3">태그 사이로 전달되는 props</ArrowComponent>
@@ -31,7 +35,6 @@ function App() {
         다른 자료형을 사용하려면 {}을 이용해서 자바스크립트로 넣어준다.*/}
       <LoginComponent login="true" /> 
       <ClassLoginComponent login={true} />
-      
     </div>
   );
 }
