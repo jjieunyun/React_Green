@@ -5,8 +5,8 @@ import { useState } from "react";
 const InputArrow = () => {
     const [message, setMessage] = useState("");
     const [form, setForm] = useState({
-      user: "",
-      message: "",
+        user: "",
+        message: "",
     });
     const inputChange = (e) => {
         setMessage(e.target.value)

@@ -15,6 +15,7 @@ class EvnetClass extends Component {
         //작성한 함수는 constructor 바깥에 작성되어서 연결하기 위해 아래와 같이 작성한다.
         //this.changeMsg 밖에서 작성한 이름으로 연결 -> this.changeMsg의 this위치를 알려주기 위해 bind사용
         //⭐ ArrowFuntion에서는 따로 bind를 사용해 주지 않아도 함수가 알아서 실행된다,
+            //화살표 함수가 사용된 곳의 this를 찾는다.
         this.changeMsg = this.changeMsg.bind(this);
         this.onChangeMsg = this.onChangeMsg.bind(this);
     }

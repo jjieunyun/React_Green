@@ -13,6 +13,8 @@ class InputClass extends Component {
     fnChange = (event)=> {
         console.log(event)
         this.setState({
+            //객체형태 {키 : 값}
+            //키를 []로 감싸면 가리키는 실제값이 사용
             [event.target.name] : event.target.value
         })
     }
@@ -52,7 +54,7 @@ class InputClass extends Component {
                 />
                 <p>name : {user}</p>
                 <p>"{message}"</p> <br/>
-                <h3>⭐alert출력 실습문제</h3>
+                <h3>🌳alert출력 실습문제</h3>
                 <p>더블클릭하면 alert창 활성화</p>
                 <button onDoubleClick={this.fnShowAlert}>Button</button>
             </div>
