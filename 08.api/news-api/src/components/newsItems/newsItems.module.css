@@ -1,0 +1,25 @@
+.list {
+    display : flex;
+    align-items: center;
+}
+    
+
+.thumbnamil {
+    margin: 0.5rem;
+}
+
+.thumbnamil img {
+    display:block;
+    width:30rem;
+    height: 20rem;
+    object-fit: cover;
+}
+
+.contents h2 {
+    margin: 0;
+}
+
+.contents p {
+    width: 30rem;
+    height: 10rem;
+}
