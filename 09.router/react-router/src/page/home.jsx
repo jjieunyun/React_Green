@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
+
 const Home = () => {
     return (
         <div>
@@ -8,7 +10,8 @@ const Home = () => {
             <p>홈화면입니다</p>
             <Link to='/about'>About</Link>  |  {" "}
             <Link to='/intro'>Intro</Link>  |  {" "}
-            <Link to='/profile/kim'>profile</Link>
+            <Link to='/profile/kim'>profile</Link>  |  {" "}
+            <Link to='/boardlist'>Board</Link>
         </div>
     );
 };
