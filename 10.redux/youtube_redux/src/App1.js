@@ -35,6 +35,7 @@ function App() {
       <div id="container">
         <h1>Root : {}</h1>
         <div id="grid">
+          {/* ⭐store를 반드시 정의해주어야함 */}
           <Provider store={store}>
             <Left1></Left1>
             <Right1></Right1>
@@ -43,6 +44,7 @@ function App() {
       </div>
     );
   }
+
   function Left1(props) {
     return (
       <div>
@@ -51,6 +53,7 @@ function App() {
       </div>
     );
   }
+
   function Left2(props) {
     return (
       <div>
@@ -59,6 +62,10 @@ function App() {
       </div>
     );
   }
+
+  // ⭐number의 값을 무선으로 제일 아래에 있는 컴포넌트에 전달
+  //useSeletor는 함수를 인자로 받는다
+  /* 만들어진 함수는 state를 인자로 받는다*/
   function Left3(props) {
     function func(state){
       return state.number;
@@ -72,6 +79,7 @@ function App() {
       </div>
     );
   }
+
   function Right1(props) {
     return (
       <div>
@@ -80,6 +88,7 @@ function App() {
       </div>
     );
   }
+
   function Right2(props) {
     console.log('2')
     return (
