@@ -9,6 +9,14 @@ const DECREASE = "coutner/DECREASE";
 export const increase = () => ({ type: INCREASE });
 export const decrease = () => ({ type: DECREASE });
 
+//비동기함수                Thunk생성함수 : 함수를 한번 감싸서 보내줌
+export const increaseAsync = () => dispatch => {
+    setTimeout(()=> {
+        dispatch(increase)
+    },1000)
+}
+
+
 // 초기 상태
 const initalState = {
   number: 0,
@@ -28,7 +36,3 @@ function counter(state = initalState, action) {
 }
 
 export default counter;
-
-
-
-
