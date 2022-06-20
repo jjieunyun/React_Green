@@ -15,7 +15,6 @@ const PostsList = () => {
     //🌳postsSlice에서 작성했던 data를 map을 통해 iterator
     //⭐substring은 mdm에서 찾아보기 -> 길이가 긴 문자열을 100개까지만 preview함
     //윗쪽에 이렇게 정의해주고 사용하면 return되는 jsx가 clean해짐
-
     //⭐Slice에서 seletor를만들고 보내는 것이 나은이유❓ data가 변경되면 
     /*
     컴포넌트에 변경된 data를 알려주어야 하는데 

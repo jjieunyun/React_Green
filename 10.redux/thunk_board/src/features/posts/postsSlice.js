@@ -10,10 +10,16 @@ const initialState = {
     error: null
 }
 
+//⭐createAsyncThunk는 2개의 인자를 받는다 : 
+/*
+1. string : used as the prefix for the generated action type
+2. payload : creatro callback and this function should return a promise that contains some data or rejected
+promise with an error
+*/
 const fetchPosts = createAsyncThunk('posts/fetchPosts', async() => {
     try {
         const response = await axios.get(POSTS_URL)
-        return [...response.data];
+        return response.data;
     }catch (error) {
         return error.message;
     }
@@ -54,6 +60,9 @@ const postsSlice = createSlice({
                 existingPost.reactions[reaction]++
             }
         }
+    },
+    extraReducers(builder) {
+        
     }
 })
 

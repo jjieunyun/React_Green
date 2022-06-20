@@ -1,35 +1,35 @@
 //redux에서 자동으로 생성해주는 id
-import { createSlice, nanoid } from '@reduxjs/toolkit'
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 import { sub } from 'date-fns';
 
 //toISOString : local시간으로 정상 변경
 const initialState = [
-    { 
-        id: '1', 
-        title : 'Learning Redux Toolkit', 
-        content: "I've heard good things.", 
-        date : sub(new Date(), { minutes : 10 }).toISOString(),
-        reactions : {
-            thumbsUp : 0,
+    {
+        id: '1',
+        title: 'Learning Redux Toolkit',
+        content: "I've heard good things.",
+        date: sub(new Date(), { minutes: 10 }).toISOString(),
+        reactions: {
+            thumbsUp: 0,
             wow: 0,
-            heart:0,
-            rocket:0,
-            coffee:0
+            heart: 0,
+            rocket: 0,
+            coffee: 0
         }
     },
-    { 
-        id: '2', 
-        title: 'Slices...', 
-        content: "The more I say slice, the more I want pizza.", 
-        date : sub(new Date(), { minutes : 5 }).toISOString(),
-        reactions : {
-            thumbsUp : 0,
+    {
+        id: '2',
+        title: 'Slices...',
+        content: "The more I say slice, the more I want pizza.",
+        date: sub(new Date(), { minutes: 5 }).toISOString(),
+        reactions: {
+            thumbsUp: 0,
             wow: 0,
-            heart:0,
-            rocket:0,
-            coffee:0
+            heart: 0,
+            rocket: 0,
+            coffee: 0
         }
-    },
+    }
 ]
 
 //⭐state.push()의 사용 : Slice안에서는 ...state가 자동으로 들어가기때문에 그냥 push만 해주어도된다.
@@ -42,7 +42,7 @@ const postsSlice = createSlice({
     reducers : {
         postAdded : {
             reducer(state, action) {
-                state.push(action.payload)
+                state.posts.push(action.payload)
             },
             prepare(title, content, userId) {
                 return {
@@ -65,7 +65,7 @@ const postsSlice = createSlice({
         },
         reactionAdded(state, action){
             const{ postId, reaction } = action.payload
-            const existingPost = state.find(post => post.id === postId)
+            const existingPost = state.posts.find(post => post.id === postId)
             if(existingPost) {
                 existingPost.reactions[reaction]++
             }
@@ -74,7 +74,7 @@ const postsSlice = createSlice({
 })
 
 //다른컴포넌트에도 posts가 바뀌는걸 알려주어야해서 이렇게 사용한다?? 
-export const selectAllPosts = (state) => state.posts;
+export const selectAllPosts = (state) => state.posts.posts;
 
 export const { postAdded, reactionAdded } =postsSlice.actions
 
