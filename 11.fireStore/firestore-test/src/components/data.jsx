@@ -1,10 +1,8 @@
-import React from 'react';
+import { addDoc, collection, getDocs } from "firebase/firestore";
 import { useState } from "react";
-import { collection, getDocs, addDoc  } from "firebase/firestore";
-import {db} from '../database/firebase'
+import { db } from "../database/firebase";
 
 const Data = () => {
-
     const [docData, setDocData] = useState([]);
     let array = [];
     // 클릭했을때 값을 가져오기위한 함수
@@ -38,17 +36,18 @@ const Data = () => {
         }
     };
 
-
-
     return (
         <div>
-            <h1>파이어베이스에서 값을 가져와서 출력하고 있습니다</h1>
-            <p>콘솔을 확인해주세요</p>
-            <button onClick={getData}>값 확인</button>
+        <h1>파이어베이스에서 값을 가져와서 출력하고있습니다</h1>
+        <p>콘솔을 확인해주세요</p>
+        <button onClick={getData}>버튼을 눌러서 값을 가져오세요</button>
+        <button onClick={addData}>버튼을 눌러서 값을 추가하세요</button>
 
-            <button onClick={addData}>값 추가</button>
+        {docData.map((data) => (
+            <div>{data.last}</div>
+        ))}
         </div>
     );
-};
+    };
 
 export default Data;

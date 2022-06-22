@@ -1,5 +1,8 @@
-import { useSelector } from "react-redux";
-import { selectAllPosts } from './postsSlice';
+import { useSelector,useDispatch } from "react-redux";
+import { selectAllPosts, getPostsStatus, getPostsError, fetchPosts } from './postsSlice';
+import { useEffect } from "react";
+
+
 import PostAuthor from "./PostAuthor";
 import TimeAgo from "./TimeAgo";
 import ReactionButtons from "./ReactionButtons";
@@ -7,10 +10,17 @@ import ReactionButtons from "./ReactionButtons";
 import React from 'react';
 
 const PostsList = () => {
+    const dispatch = useDispatch();
     //🌳postsSlice에 작성해둔 posts state를 가져온다.
-    const posts = useSelector(selectAllPosts)
+    const posts = useSelector(selectAllPosts);
+    const postsStatus = useSelector(getPostsStatus);
+    const postsError = useSelector(getPostsError);
 
-    
+    useEffect(()=> {
+        if(postsStatus === 'idle') {
+            dispatch(fetchPosts())
+        }
+    },[postsStatus, dispatch])
 
     //🌳postsSlice에서 작성했던 data를 map을 통해 iterator
     //⭐substring은 mdm에서 찾아보기 -> 길이가 긴 문자열을 100개까지만 preview함
